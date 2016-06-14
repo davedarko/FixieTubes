@@ -63,6 +63,14 @@ void loop() {
     // save the last time you blinked the LED 
     previousMillis = currentMillis;   
     update_data();
+    if (ft_hours < 8 || ft_hours > 23)
+    {
+      analogWrite(pwmPin, 0);  
+    }
+    else
+    {
+      analogWrite(pwmPin, 12);
+    }
   }
 
   int h2 = ft_hours%10;
