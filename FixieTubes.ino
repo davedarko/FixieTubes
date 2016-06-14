@@ -29,8 +29,8 @@ int pwmPin = 3;
 int ft_year = 2014;
 int ft_month = 01;
 int ft_day = 24;
-int ft_hours = 21;
-int ft_minut = 14;
+int ft_hours = 23;
+int ft_minut = 45;
 int ft_seconds = 40;
 
 long previousMillis = 0;        // will store last time LED was updated
@@ -49,7 +49,6 @@ void setup() {
   pinMode(dataPin, OUTPUT);
   pinMode(pwmPin, OUTPUT);
   
-  analogWrite(pwmPin, 16);
   Serial.begin(9600);
 }
 
@@ -63,9 +62,10 @@ void loop() {
     // save the last time you blinked the LED 
     previousMillis = currentMillis;   
     update_data();
-    if (ft_hours < 8 || ft_hours > 23)
+    if (
+      (ft_hours < 8) || (ft_hours > 22))
     {
-      analogWrite(pwmPin, 0);  
+      digitalWrite(pwmPin, LOW);  
     }
     else
     {
