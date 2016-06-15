@@ -96,8 +96,9 @@ void loop() {
     //return the latch pin high to signal chip that it 
     //no longer needs to listen for information
     digitalWrite(latchPin, 1);
-    delayMicroseconds(200);
+    delayMicroseconds(20);
   }
+  /*
   for (int i = 0; i < 16; i++) {
     digitalWrite(latchPin, 0);
     //move 'em out
@@ -108,8 +109,8 @@ void loop() {
     //return the latch pin high to signal chip that it 
     //no longer needs to listen for information
     digitalWrite(latchPin, 1);
-    delayMicroseconds(200);
-  }
+    delayMicroseconds(100);
+  }*/
 }
 
 
