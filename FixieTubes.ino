@@ -59,8 +59,12 @@ void loop() {
   
   unsigned long currentMillis = millis();
   if(currentMillis - previousMillis > interval) {
-    // save the last time you blinked the LED 
-    previousMillis = currentMillis;   
+
+    if (ft_seconds == 0)
+    {
+      interval = 60000;
+    }
+    previousMillis = currentMillis;
     update_data();
     if (
       (ft_hours < 8) || (ft_hours > 22))
@@ -97,9 +101,7 @@ void loop() {
     //no longer needs to listen for information
     digitalWrite(latchPin, 1);
     delayMicroseconds(20);
-  }
-  /*
-  for (int i = 0; i < 16; i++) {
+
     digitalWrite(latchPin, 0);
     //move 'em out
     shiftOut(dataPin, clockPin, 0);
@@ -109,8 +111,8 @@ void loop() {
     //return the latch pin high to signal chip that it 
     //no longer needs to listen for information
     digitalWrite(latchPin, 1);
-    delayMicroseconds(100);
-  }*/
+    delayMicroseconds(5);
+  }
 }
 
 
